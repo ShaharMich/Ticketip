@@ -1,0 +1,557 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    background-color: #111;
+    color: #fff;
+}
+
+/* HERO SECTION */
+.hero {
+    position: relative;
+    background: url('Landing page.png') no-repeat center center/cover;
+    height: 75vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.4);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 700px;
+}
+
+.hero h1 {
+    font-size: 4em;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+.hero p {
+    font-size: 1.3em;
+    margin-bottom: 25px;
+}
+
+/* Contact Button Animation */
+.contact-btn {
+    padding: 12px 25px;
+    background: gold;
+    color: black;
+    font-weight: bold;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: all 0.4s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.1em;
+}
+
+.contact-btn i {
+    transition: transform 0.4s ease;
+}
+
+.contact-btn:hover i {
+    transform: translateX(8px);
+}
+
+.contact-btn:hover {
+    background: #d4af37;
+}
+
+/* SERVICES SECTION */
+.services {
+    background: white;
+    color: black;
+    padding: 50px 20px;
+    text-align: center;
+}
+
+/* VIP Box Title */
+.services-box {
+    background: linear-gradient(90deg, gold, #ecd690);
+    padding: 15px 25px;
+    display: inline-block;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.services-box h2 {
+    color: black;
+    font-size: 2em;
+    margin: 0;
+}
+
+.services-box {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover effect for whole box */
+.services-box:hover {
+    transform: translateY(-5px); /* lift the box */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); /* shadow under the box */
+}
+
+.services-intro {
+    font-size: 1.2em;
+    color: #555;
+    max-width: 800px;
+    margin: 0 auto 30px auto;
+}
+
+/* Service list with hover animation */
+.services-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.service-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: #f5f5f5;
+    padding: 15px 20px;
+    border-radius: 8px;
+    font-size: 1.1em;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+}
+
+.service-item i {
+    font-size: 1.5em;
+    color: gold;
+    transition: transform 0.3s ease;
+}
+
+/* Sports ball roll */
+.service-item.sports:hover i {
+    animation: roll 2s linear infinite;
+}
+@keyframes roll {
+    to { transform: rotate(360deg); }
+}
+
+/* Concerts - confetti (visuals from JS) */
+
+.service-item.concerts {
+    position: relative;   /* <-- Added: makes confetti position relative to this container */
+    overflow: hidden;     /* <-- Added: hides confetti outside the container */
+}
+
+.confetti {
+    position: absolute;
+    top: 0; /* <-- Add this */
+    width: 6px;
+    height: 6px;
+    background: red;
+    opacity: 0.8;
+    animation: fall 1.5s linear forwards;
+}
+@keyframes fall {
+    0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+    100% { transform: translateY(120px) rotate(360deg); opacity: 0; }
+}
+
+/* Transport car drive */
+.service-item.transport:hover i {
+    animation: drive 1s linear infinite;
+}
+@keyframes drive {
+    0% { transform: translateX(-5px); }
+    50% { transform: translateX(5px); }
+    100% { transform: translateX(-5px); }
+}
+
+/* Organized Trips pin bounce */
+.service-item.trips:hover i {
+    animation: bounce 0.6s ease-in-out infinite;
+}
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+}
+
+/* Hotels lights flicker */
+.hotel-light {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: yellow;
+    top: 35%;
+    left: 55%;
+    opacity: 0;
+}
+@keyframes smoothFlicker {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 1; }
+}
+.service-item.hotels:hover .hotel-light {
+    animation: smoothFlicker 1.5s infinite ease-in-out;
+}
+
+/* Flights plane flying */
+.service-item.flights:hover i {
+    animation: fly 1s ease-in-out infinite;
+}
+@keyframes fly {
+    0% { transform: translate(0,0); }
+    50% { transform: translate(5px,-5px); }
+    100% { transform: translate(0,0); }
+}
+
+/* Hover effect for service items */
+.service-item:hover {
+    background: #fff3b0;
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+}
+
+.why-choose-us {
+    background: #f5f5f5;
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.why-choose-us h2 {
+    display: inline-block;
+    background: linear-gradient(90deg, gold, #ecd690);
+    color: black;
+    font-size: 2em;
+    padding: 15px 25px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+}
+
+.why-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.why-card {
+    flex: 0 0 250px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    padding: 30px 20px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.why-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+}
+
+.why-card i {
+    font-size: 2rem;
+    color: #00b894;
+    margin-bottom: 15px;
+}
+
+.why-card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+}
+
+.why-card p {
+    font-size: 1rem;
+    color: #555;
+}
+
+.packages {
+    background: #f8f8f8;
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.packages h2 {
+    display: inline-block; /* like services-box */
+    background: linear-gradient(90deg, gold, #ecd690);
+    color: black;
+    font-size: 2em;
+    padding: 15px 25px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: default; /* optional, looks like a static box */
+}
+
+/* Hover effect like services-box */
+.packages h2:hover {
+    transform: translateY(-5px); 
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+.package-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+.package {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.package:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 6px 15px rgba(0,0,0,0.2);
+}
+.package i {
+    color: #00b894;
+    font-size: 1.5rem;
+}
+
+.why-choose-us, .packages {
+    color: #222; /* Strong dark text */
+}
+.why-choose-us h2, .packages h2 {
+    color: #111; /* Even darker for titles */
+}
+
+.whatsapp-float {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 40px;
+    right: 40px;
+    background-color: #25d366;
+    color: white;
+    border-radius: 50px;
+    text-align: center;
+    font-size: 30px;
+    box-shadow: 2px 2px 3px #999;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease;
+}
+.whatsapp-float:hover {
+    transform: scale(1.1);
+}
+
+.tips-section {
+    background: #f5f5f5;
+    padding: 40px 20px;
+    overflow-x: auto;
+}
+
+.tips-wrapper {
+    display: flex;
+    gap: 20px;
+}
+
+.tip-card {
+    flex: 0 0 350px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.tip-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+}
+
+.tip-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.tip-content {
+    padding: 20px;
+    color: #222;
+}
+
+.tip-content h2 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.tip-content ol {
+    padding-left: 20px;
+}
+
+.tip-content li {
+    margin-bottom: 8px;
+}
+
+.contact-section {
+    background: #f5f5f5;
+    padding: 50px 20px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.contact-box {
+    background: white;
+    padding: 30px 40px;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+    max-width: 600px;
+    width: 100%;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+.contact-box h2 {
+    margin-bottom: 25px;
+    font-size: 2em;
+    color: #222;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.form-row {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.contact-form input,
+.contact-form textarea {
+    padding: 12px 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    width: 100%;
+    font-size: 1em;
+    resize: none;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    outline: none;
+    border-color: gold;
+    box-shadow: 0 0 5px rgba(218,165,32,0.5);
+}
+
+.contact-form button {
+    padding: 12px 20px;
+    background: gold;
+    color: black;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.contact-form button:hover {
+    background: #d4af37;
+    transform: translateY(-2px);
+}
+
+/* FOOTER */
+footer {
+    background: #0d0d0d;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    font-size: 0.9em;
+}
+
+footer {
+    background: black;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.airplane {
+    background: url('https://img.icons8.com/ios-filled/50/ffffff/airplane-take-off.png') no-repeat center;
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    bottom: 10px;
+    left: -60px;
+    animation: flyAcross 5s linear forwards; /* runs once & stays */
+}
+
+@keyframes flyAcross {
+    from { left: -60px; }
+    to { left: calc(35% + 60px); } 
+}
+
+/* Top social icons */
+.top-social {
+    position: absolute;
+    top: 15px;
+    right: 40px;
+    display: flex;
+    gap: 15px;
+    z-index: 2; /* Above overlay */
+}
+
+.top-social a {
+    color: white; /* Matches hero text */
+    font-size: 1.8rem;
+    transition: color 0.3s ease;
+    margin: 0 5px;
+}
+
+
+.top-social a:hover {
+    color: #00b894; /* Green on hover */
+}
+
+/* Footer social icons */
+.footer-social {
+    margin-bottom: 10px;
+}
+
+.footer-social a {
+    color: white;
+    font-size: 1.2rem;
+    margin: 0 8px;
+    transition: color 0.3s ease;
+}
+
+.footer-social a:hover {
+    color: #00b894;
+}
